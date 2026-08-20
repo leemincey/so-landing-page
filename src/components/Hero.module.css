@@ -1,0 +1,45 @@
+.hero {
+  background: var(--bg-light);
+  padding: 5rem 2rem;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.headline {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 900;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  line-height: 1.15;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 72ch;
+}
+
+.body p {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.75;
+  color: var(--text-dark);
+}
+
+.body em {
+  font-style: italic;
+}
+
+.body strong {
+  font-weight: 700;
+  color: var(--plum);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 3rem 1.25rem;
+  }
+}

@@ -1,0 +1,75 @@
+.header {
+  background: var(--plum);
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 120px;
+}
+
+/* ── Logo badge placeholder ── */
+.logoBadge {
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--magenta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logoBadge span {
+  color: var(--white);
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+/* ── Wordmark ── */
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+}
+
+.wordmarkMain {
+  color: var(--text-gray);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+
+.wordmarkSub {
+  color: var(--text-gray);
+  font-size: clamp(0.6rem, 1.8vw, 0.85rem);
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 1.25rem 1rem;
+    min-height: 100px;
+  }
+
+  .logoBadge {
+    width: 44px;
+    height: 44px;
+    left: 1rem;
+  }
+
+  .logoBadge span {
+    font-size: 0.8rem;
+  }
+}

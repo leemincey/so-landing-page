@@ -1,0 +1,82 @@
+.section {
+  background: var(--bg-light);
+  padding: 5rem 2rem;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  color: var(--plum);
+  margin-bottom: 2rem;
+}
+
+/* ── Banner placeholder ── */
+.bannerPlaceholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #2a1a26;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--magenta);
+  margin-bottom: 1rem;
+}
+
+.placeholderLabel {
+  color: var(--magenta);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-weight: 500;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* When Lee swaps in a real image, this class keeps the same sizing */
+.bannerImage {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.caption {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.learnMore {
+  display: inline-block;
+  background: var(--magenta);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+  transition: background 0.2s ease;
+}
+
+.learnMore:hover,
+.learnMore:focus-visible {
+  background: var(--magenta-dark);
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 1.25rem;
+  }
+}
