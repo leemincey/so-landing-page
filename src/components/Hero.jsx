@@ -1,8 +1,10 @@
+import { useInView } from '../hooks/useInView'
 import styles from './Hero.module.css'
 
 export default function Hero() {
+  const [ref, visible] = useInView()
   return (
-    <section className={styles.hero}>
+    <section ref={ref} className={`${styles.hero} reveal${visible ? ' visible' : ''}`}>
       <div className={styles.inner}>
         <h1 className={styles.headline}>Two weirdos, one wild vision.</h1>
         <div className={styles.body}>

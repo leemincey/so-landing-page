@@ -1,29 +1,20 @@
+import { useInView } from '../hooks/useInView'
 import styles from './ComingSoon.module.css'
 
 export default function ComingSoon() {
+  const [ref, visible] = useInView()
   return (
-    <section className={styles.section}>
+    <section ref={ref} className={`${styles.section} reveal${visible ? ' visible' : ''}`}>
       <div className={styles.inner}>
         <p className={styles.tagline}>Something Wickedly Fun This Way Comes…</p>
 
-        {/* ── Banner image placeholder ──────────────────────────────────────────
-            PLACEHOLDER: Replace this <div> with an <img> once Lee supplies
-            the Dracula's Monster Ball key art.
-            Suggested:
-              <img
-                src="/assets/draculas-monster-ball-banner.jpg"
-                alt="Dracula's Monster Ball key art"
-                className={styles.bannerImage}
-              />
-            The placeholder preserves a 16:9 aspect ratio at full width.
-        ─────────────────────────────────────────────────────────────────────── */}
-        <div className={styles.bannerPlaceholder} role="img" aria-label="Dracula's Monster Ball banner image placeholder">
-          <span className={styles.placeholderLabel}>
-            🖼 Dracula's Monster Ball — Key Art Goes Here (16:9)
-          </span>
-        </div>
+        <img
+          src="/assets/draculas-monster-ball-banner.png"
+          alt="Dracula's Monster Ball — Coming to Culver City October 2026"
+          className={styles.bannerImage}
+        />
 
-        <p className={styles.caption}>🎭 Coming to Culver City in October 2026</p>
+        <p className={styles.caption}>🧛🏽‍♂️ Coming to Culver City in October 2026</p>
 
         {/* TODO: Replace '#' with the real Dracula's Monster Ball page URL once
             it exists — either an external URL or an internal route like '/dracula'. */}

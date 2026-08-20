@@ -9,7 +9,13 @@
   min-height: 120px;
 }
 
-/* ── Logo badge placeholder ── */
+/* ── Logo spin on page load ── */
+@keyframes spinIn {
+  from { transform: translateY(-50%) rotate(-360deg) scale(0.7); }
+  to   { transform: translateY(-50%) rotate(0deg)    scale(1);   }
+}
+
+/* ── Logo badge ── */
 .logoBadge {
   position: absolute;
   left: 1.5rem;
@@ -18,18 +24,10 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--magenta);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-shrink: 0;
-}
-
-.logoBadge span {
-  color: var(--white);
-  font-weight: 900;
-  font-size: 1rem;
-  letter-spacing: 0.03em;
+  object-fit: cover;
+  /* spring-like bounce easing: overshoot then settle */
+  animation: spinIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
 }
 
 /* ── Wordmark ── */
@@ -67,9 +65,5 @@
     width: 44px;
     height: 44px;
     left: 1rem;
-  }
-
-  .logoBadge span {
-    font-size: 0.8rem;
   }
 }

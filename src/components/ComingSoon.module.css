@@ -20,28 +20,7 @@
   margin-bottom: 2rem;
 }
 
-/* ── Banner placeholder ── */
-.bannerPlaceholder {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #2a1a26;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed var(--magenta);
-  margin-bottom: 1rem;
-}
-
-.placeholderLabel {
-  color: var(--magenta);
-  font-size: clamp(0.8rem, 2vw, 1rem);
-  font-weight: 500;
-  padding: 1rem;
-  text-align: center;
-}
-
-/* When Lee swaps in a real image, this class keeps the same sizing */
+/* ── Banner image ── */
 .bannerImage {
   width: 100%;
   aspect-ratio: 16 / 9;

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useInView } from '../hooks/useInView'
 import styles from './Countdown.module.css'
 
 // Fixed launch timestamp in Pacific Time (PDT = UTC-7 in August 2026).
@@ -27,6 +28,7 @@ function pad(n) {
 
 export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState(getTimeLeft)
+  const [ref, visible] = useInView()
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -36,7 +38,7 @@ export default function Countdown() {
   }, [])
 
   return (
-    <section className={styles.section}>
+    <section ref={ref} className={`${styles.section} reveal${visible ? ' visible' : ''}`}>
       <div className={styles.inner}>
         <h2 className={styles.heading}>Full site launching soon</h2>
 
@@ -45,22 +47,26 @@ export default function Countdown() {
         ) : (
           <div className={styles.clock}>
             <div className={styles.unit}>
-              <span className={styles.digits}>{timeLeft.days}</span>
+              {/* key=days: animates only when the day rolls over */}
+              <span key={timeLeft.days} className={styles.digits}>{timeLeft.days}</span>
               <span className={styles.label}>Days</span>
             </div>
             <span className={styles.colon}>:</span>
             <div className={styles.unit}>
-              <span className={styles.digits}>{pad(timeLeft.hours)}</span>
+              {/* key=hours: animates only when the hour rolls over */}
+              <span key={timeLeft.hours} className={styles.digits}>{pad(timeLeft.hours)}</span>
               <span className={styles.label}>Hours</span>
             </div>
             <span className={styles.colon}>:</span>
             <div className={styles.unit}>
-              <span className={styles.digits}>{pad(timeLeft.minutes)}</span>
+              {/* key=minutes: animates only when the minute rolls over */}
+              <span key={timeLeft.minutes} className={styles.digits}>{pad(timeLeft.minutes)}</span>
               <span className={styles.label}>Minutes</span>
             </div>
             <span className={styles.colon}>:</span>
             <div className={styles.unit}>
-              <span className={styles.digits}>{pad(timeLeft.seconds)}</span>
+              {/* key=seconds: animates every tick */}
+              <span key={timeLeft.seconds} className={styles.digits}>{pad(timeLeft.seconds)}</span>
               <span className={styles.label}>Seconds</span>
             </div>
           </div>

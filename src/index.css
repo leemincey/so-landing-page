@@ -40,3 +40,23 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* ── Scroll-reveal utility ─────────────────────────────────────────────────
+   Apply class="reveal" to any element; add "visible" when it enters the
+   viewport (via useInView hook) to animate it in.
+── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Countdown digit pop ── */
+@keyframes digitPop {
+  0%   { transform: scale(1.25); opacity: 0.5; }
+  100% { transform: scale(1);    opacity: 1;   }
+}

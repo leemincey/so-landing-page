@@ -1,3 +1,4 @@
+import { useInView } from '../hooks/useInView'
 import styles from './Footer.module.css'
 
 const links = [
@@ -11,8 +12,9 @@ const links = [
 // routes once those pages exist.
 
 export default function Footer() {
+  const [ref, visible] = useInView()
   return (
-    <footer className={styles.footer}>
+    <footer ref={ref} className={`${styles.footer} reveal${visible ? ' visible' : ''}`}>
       <nav className={styles.nav} aria-label="Footer navigation">
         {links.map((link, i) => (
           <a key={i} href={link.href} className={styles.link}>

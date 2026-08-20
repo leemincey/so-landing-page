@@ -1,3 +1,4 @@
+import { useInView } from '../hooks/useInView'
 import styles from './WhatWeDo.module.css'
 
 const cards = [
@@ -20,13 +21,19 @@ farm, retail, and restaurant formats.`,
 ]
 
 export default function WhatWeDo() {
+  const [ref, visible] = useInView()
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <h2 className={styles.heading}>What We Do</h2>
+        <h2 className={`${styles.heading} reveal${visible ? ' visible' : ''}`}
+            ref={ref}>What We Do</h2>
         <div className={styles.grid}>
-          {cards.map((card) => (
-            <div key={card.title} className={styles.card}>
+          {cards.map((card, i) => (
+            <div
+              key={card.title}
+              className={`${styles.card} reveal${visible ? ' visible' : ''}`}
+              style={{ transitionDelay: visible ? `${i * 0.15}s` : '0s' }}
+            >
               <h3 className={styles.cardTitle}>{card.title}</h3>
               <p className={styles.cardBody}>{card.body}</p>
             </div>
